@@ -1,0 +1,7 @@
+parameters:
+#    address_book.example.class: AddressBook\Bundle\Example
+
+services:
+#    address_book.example:
+#        class: %address_book.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
