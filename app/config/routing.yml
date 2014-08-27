@@ -1,4 +1,0 @@
-address_book:
-    resource: "@AddressBookBundle/Resources/config/routing.yml"
-    prefix:   /
-
