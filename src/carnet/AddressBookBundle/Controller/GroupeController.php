@@ -8,8 +8,12 @@ class GroupeController extends Controller
 {
     public function listerAction()
     {
+        $repo = $this->getDoctrine()->getRepository('carnetAddressBookBundle:Groupe');
+        
+        $listeGroupes = $repo->findAll();
+        
         return $this->render('carnetAddressBookBundle:Groupe:lister.html.twig', array(
-                // ...
+                'listeGroupes' => $listeGroupes
             ));    }
 
     public function ajouterAction()
