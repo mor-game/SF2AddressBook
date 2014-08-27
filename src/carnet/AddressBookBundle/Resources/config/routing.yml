@@ -1,9 +1,5 @@
-carnet_addressBook_homepage:
-    path:     /
-    defaults: { _controller: carnetAddressBookBundle:Contact:Contact }
-
 carnet_addressBook_contact_lister:
-    path:     /lister
+    path:     /
     defaults: { _controller: carnetAddressBookBundle:Contact:lister }
 
 carnet_addressBook_contact_ajouter:

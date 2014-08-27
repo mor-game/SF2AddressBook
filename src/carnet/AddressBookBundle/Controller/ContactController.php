@@ -6,16 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ContactController extends Controller
 {
-    public function ContactAction()
-    {
-        return $this->render('carnetAddressBookBundle:Contact:Contact.html.twig', array(
-                // ...
-            ));    }
 
     public function listerAction()
     {
+        $repo = $this->getDoctrine()->getRepository('carnetAddressBookBundle:Contact');
+        
+        $listeContacts = $repo->findAll();
+        
         return $this->render('carnetAddressBookBundle:Contact:lister.html.twig', array(
-                // ...
+                "listeContacts" => $listeContacts
             ));    }
 
     public function ajouterAction()
