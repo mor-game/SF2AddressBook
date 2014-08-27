@@ -50,4 +50,37 @@ class Groupe
         $this->contactContact = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
+    public function getIdGroupe() {
+        return $this->idGroupe;
+    }
+
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function getContactContact() {
+        return $this->contactContact;
+    }
+
+    public function setIdGroupe($idGroupe) {
+        $this->idGroupe = $idGroupe;
+    }
+
+    public function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
+
+    public function setContactContact(\Doctrine\Common\Collections\Collection $contactContact) {
+        $this->contactContact = $contactContact;
+    }
+
+
 }
