@@ -1,5 +1,5 @@
 carnet_address_book_homepage:
-    path:     /hello/{master}
+    path:     /
     defaults: { _controller: carnetAddressBookBundle:Default:index }
 
 _contact:
