@@ -1,7 +1,14 @@
 {% extends "carnetAddressBookBundle::base.html.twig" %}
 
-{% block title %}carnetAddressBookBundle:Groupe:lister{% endblock %}
+{% block title %}Carnet d'adresse{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Groupe:lister page</h1>
+{% block contenu %}
+<h2>Liste des groupes:</h2>
+
+{% for groupe in listeGroupes %}
+    <ul class="list-group">
+        <li class="list-group-item">{{groupe.nom}}</li>
+    </ul>
+{% endfor %}
+
 {% endblock %}
