@@ -1,31 +1,27 @@
-carnet_address_book_homepage:
+carnet_addressBook_homepage:
     path:     /
-    defaults: { _controller: carnetAddressBookBundle:Default:index }
-
-_contact:
-    path:     /Contact
     defaults: { _controller: carnetAddressBookBundle:Contact:Contact }
 
-lister:
+carnet_addressBook_contact_lister:
     path:     /lister
     defaults: { _controller: carnetAddressBookBundle:Contact:lister }
 
-ajouter:
+carnet_addressBook_contact_ajouter:
     path:     /ajouter
     defaults: { _controller: carnetAddressBookBundle:Contact:ajouter }
 
-lister:
+carnet_addressBook_societe_lister:
     path:     /lister
     defaults: { _controller: carnetAddressBookBundle:Societe:lister }
 
-ajouter:
+carnet_addressBook_societe_ajouter:
     path:     /ajouter
     defaults: { _controller: carnetAddressBookBundle:Societe:ajouter }
 
-lister:
+carnet_addressBook_groupe_lister:
     path:     /lister
     defaults: { _controller: carnetAddressBookBundle:Groupe:lister }
 
-ajouter:
+carnet_addressBook_groupe_ajouter:
     path:     /ajouter
     defaults: { _controller: carnetAddressBookBundle:Groupe:ajouter }
