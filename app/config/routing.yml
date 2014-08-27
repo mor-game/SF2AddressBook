@@ -1,3 +1,7 @@
+carnet_address_book:
+    resource: "@carnetAddressBookBundle/Resources/config/routing.yml"
+    prefix:   /
+
 address_book:
     resource: "@AddressBookBundle/Resources/config/routing.yml"
     prefix:   /
