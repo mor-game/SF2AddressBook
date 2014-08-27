@@ -48,5 +48,55 @@ class Societe
      * @ORM\Column(name="cp", type="string", length=5, nullable=false)
      */
     private $cp;
+    
+    function __construct($idSociete, $nom, $adresse, $ville, $cp) {
+        $this->idSociete = $idSociete;
+        $this->nom = $nom;
+        $this->adresse = $adresse;
+        $this->ville = $ville;
+        $this->cp = $cp;
+    }
+
+    
+    public function getIdSociete() {
+        return $this->idSociete;
+    }
+
+    public function getNom() {
+        return $this->nom;
+    }
+
+    public function getAdresse() {
+        return $this->adresse;
+    }
+
+    public function getVille() {
+        return $this->ville;
+    }
+
+    public function getCp() {
+        return $this->cp;
+    }
+
+    public function setIdSociete($idSociete) {
+        $this->idSociete = $idSociete;
+    }
+
+    public function setNom($nom) {
+        $this->nom = $nom;
+    }
+
+    public function setAdresse($adresse) {
+        $this->adresse = $adresse;
+    }
+
+    public function setVille($ville) {
+        $this->ville = $ville;
+    }
+
+    public function setCp($cp) {
+        $this->cp = $cp;
+    }
+
 
 }
