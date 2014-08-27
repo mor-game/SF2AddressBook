@@ -45,7 +45,7 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="tel", type="decimal", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="tel", type="string", length=15, nullable=false)
      */
     private $tel;
 
@@ -57,9 +57,9 @@ class Contact
     private $adresse;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(name="cp", type="boolean", nullable=true)
+     * @ORM\Column(name="cp", type="string", length=5, nullable=true)
      */
     private $cp;
 
@@ -102,186 +102,5 @@ class Contact
     {
         $this->groupeGroupe = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-    /**
-     * Get id
-     * 
-     * @return integer
-     */
-    public function getIdContact() {
-        return $this->idContact;
-    }
-
-    /**
-     * Get prenom
-     * 
-     * @return string
-     */
-    public function getPrenom() {
-        return $this->prenom;
-    }
-
-    /**
-     * Get nom
-     * 
-     * @return string
-     */
-    public function getNom() {
-        return $this->nom;
-    }
-
-    /**
-     * Get email
-     * 
-     * @return string
-     */
-    public function getEmail() {
-        return $this->email;
-    }
-
-    /**
-     * Get tel
-     * 
-     * @return integer
-     */
-    public function getTel() {
-        return $this->tel;
-    }
-
-    /**
-     * Get adresse
-     * 
-     * @return string
-     */
-    public function getAdresse() {
-        return $this->adresse;
-    }
-
-    /**
-     * Get cp
-     * 
-     * @return tinyint
-     */
-    public function getCp() {
-        return $this->cp;
-    }
-
-    /**
-     * Get ville
-     * 
-     * @return string
-     */
-    public function getVille() {
-        return $this->ville;
-    }
-
-    /**
-     * Get societesociete
-     * 
-     * @return string
-     */
-    public function getSocieteSociete() {
-        return $this->societeSociete;
-    }
-
-    /**
-     * Get groupegroupe
-     * 
-     * @return string
-     */
-    public function getGroupeGroupe() {
-        return $this->groupeGroupe;
-    }
-
-/**
- * Set prenom
- * 
- * @param type $prenom
- * return Contact
- */
-    public function setPrenom($prenom) {
-        $this->prenom = $prenom;
-    }
-
-    /**
-     * Set nom
-     * 
-     * @param type $nom
-     * return Contact
-     */
-    public function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    /**
-     * Set email
-     * 
-     * @param type $email
-     * return Contact
-     */
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-
-    /**
-     * Set tel
-     * 
-     * @param type $tel
-     * return Contact
-     */
-    public function setTel($tel) {
-        $this->tel = $tel;
-    }
-
-    /**
-     * Set adresse
-     * 
-     * @param type $adresse
-     * return Contact
-     */
-    public function setAdresse($adresse) {
-        $this->adresse = $adresse;
-    }
-
-    /**
-     * Set cp
-     * 
-     * @param type $cp
-     * return Contact
-     */
-    public function setCp($cp) {
-        $this->cp = $cp;
-    }
-
-    /**
-     * Set ville
-     * 
-     * @param type $ville
-     * return Contact
-     */
-    public function setVille($ville) {
-        $this->ville = $ville;
-    }
-
-    /**
-     * Set societesociete
-     * 
-     * @param \Societe $societeSociete
-     * return Contact
-     */
-    public function setSocieteSociete(\Societe $societeSociete) {
-        $this->societeSociete = $societeSociete;
-    }
-
-    /**
-     * Set groupegroupe
-     * 
-     * @param \Doctrine\Common\Collections\Collection $groupeGroupe
-     * return Contact
-     */
-    public function setGroupeGroupe(\Doctrine\Common\Collections\Collection $groupeGroupe) {
-        $this->groupeGroupe = $groupeGroupe;
-    }
-
 
 }

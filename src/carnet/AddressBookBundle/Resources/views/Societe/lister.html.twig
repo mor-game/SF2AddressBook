@@ -1,7 +1,16 @@
-{% extends "::base.html.twig" %}
+{% extends "carnetAddressBookBundle::base.html.twig" %}
 
-{% block title %}carnetAddressBookBundle:Societe:lister{% endblock %}
+{% block title %}Carnet d'adresse - Liste des Sociétés{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Societe:lister page</h1>
+{% block contenu %}
+<h1>Mes sociétés</h1>
+<ul class="btn-group btn-group-vertical">
+        {%for societe in listeSocietes%}
+           
+                <a href="{{path('carnet_addressBook_societe_lister', {'societe':societe.nom|lower})}}">
+                    <li class="btn btn-default">{{societe.nom}}</li>
+                </a>
+            
+        {% endfor %}
+    </ul>
 {% endblock %}

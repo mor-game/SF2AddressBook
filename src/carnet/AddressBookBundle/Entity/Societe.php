@@ -43,11 +43,10 @@ class Societe
     private $ville;
 
     /**
-     * @var boolean
+     * @var string
      *
-     * @ORM\Column(name="cp", type="boolean", nullable=false)
+     * @ORM\Column(name="cp", type="string", length=5, nullable=false)
      */
     private $cp;
-
 
 }
