@@ -9,12 +9,12 @@ class ContactController extends Controller
 
     public function listerAction()
     {
-        $repo = $this->getDoctrine()->getRepository('NextJobsBundle:Annonce');
+        $repo = $this->getDoctrine()->getRepository('carnetAddressBookBundle:Contact');
         
-        $listeContactes = $repo->findAll();
+        $listeContacts = $repo->findAll();
         
-        return $this->render('AddressBookBundle:Contact:lister.html.twig', array(
-                "listeContactes" => $listeContactes
+        return $this->render('carnetAddressBookBundle:Contact:lister.html.twig', array(
+                "listeContacts" => $listeContacts
             ));    }
 
     public function ajouterAction()

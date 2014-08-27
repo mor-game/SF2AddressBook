@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Carnet - Mes contacts{% endblock %}</title>
+        <link rel="stylesheet" href="{{asset('bundles/carnetAddressBook/css/bootstrap.min.css')}}" />
+
+    {%block stylesheets %}{%endblock%}
+    <link rel="icon" type="image/x-icon" href="{{asset('favicon.ico')}}"/>
+
+</head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+        {% include 'carnetAddressBookBundle::menu.html.twig'%}
+
+    <div class="container">
+
+        {% block contenu %} {% endblock%}
+
+    </div><!-- fin div container-->
+
+    <script src="{{asset('bundles/carnetAddressBook/js/jquery-1.11.1.js')}}"></script>
+    <script src="{{asset('bundles/carnetAddressBook/js/bootstrap.js')}}"></script>	
+{%block javascripts %}{% endblock%}
+
+
+</body>
 </html>
