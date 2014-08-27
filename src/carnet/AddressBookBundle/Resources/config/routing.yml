@@ -3,21 +3,21 @@ carnet_addressBook_contact_lister:
     defaults: { _controller: carnetAddressBookBundle:Contact:lister }
 
 carnet_addressBook_contact_ajouter:
-    path:     /ajouter
+    path:     /contact/ajouter
     defaults: { _controller: carnetAddressBookBundle:Contact:ajouter }
 
 carnet_addressBook_societe_lister:
-    path:     /lister
+    path:     /societe/lister
     defaults: { _controller: carnetAddressBookBundle:Societe:lister }
 
 carnet_addressBook_societe_ajouter:
-    path:     /ajouter
+    path:     /societe/ajouter
     defaults: { _controller: carnetAddressBookBundle:Societe:ajouter }
 
 carnet_addressBook_groupe_lister:
-    path:     /lister
+    path:     /groupe/lister
     defaults: { _controller: carnetAddressBookBundle:Groupe:lister }
 
 carnet_addressBook_groupe_ajouter:
-    path:     /ajouter
+    path:     /groupe/ajouter
     defaults: { _controller: carnetAddressBookBundle:Groupe:ajouter }
