@@ -142,7 +142,7 @@ class Contact
     /**
      * Get tel
      * 
-     * @return integer
+     * @return string
      */
     public function getTel() {
         return $this->tel;
@@ -160,7 +160,7 @@ class Contact
     /**
      * Get cp
      * 
-     * @return tinyint
+     * @return integer
      */
     public function getCp() {
         return $this->cp;
