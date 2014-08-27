@@ -1,5 +1,5 @@
 {% extends "CarnetJobsBundle::base.html.twig" %}
-{% import "CarnetJobsBundle::bootstrap_contact.html.twig" as bootstrap %}
+{% import "CarnetAddressBookBundle::bootstrap_contact.html.twig" as bootstrap %}
 
 {% block title %}Ajouter un contact - Jobs{% endblock %}
 
@@ -49,14 +49,14 @@
 
 {% block javascripts %}
 
-    <script src="{{ asset('bundles/nextjobs/js/select2-3.5.1/select2.js')}}"></script>
-    <script src="{{ asset('bundles/nextjobs/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
+    <script src="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2.js')}}"></script>
+    <script src="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2_locale_fr.js')}}"></script>
     
-  <script>
+{#  <script>
         $("#AnnonceForm_categories").select2({
             placeholder: 'Selectionnez une ou plusieurs catégories'
         });
-    </script>
+    </script>#}
 
  
 {% endblock %}

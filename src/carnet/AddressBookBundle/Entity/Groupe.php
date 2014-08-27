@@ -83,4 +83,27 @@ class Groupe
     }
 
 
+
+    /**
+     * Add contactContact
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contactContact
+     * @return Groupe
+     */
+    public function addContactContact(\carnet\AddressBookBundle\Entity\Contact $contactContact)
+    {
+        $this->contactContact[] = $contactContact;
+
+        return $this;
+    }
+
+    /**
+     * Remove contactContact
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contactContact
+     */
+    public function removeContactContact(\carnet\AddressBookBundle\Entity\Contact $contactContact)
+    {
+        $this->contactContact->removeElement($contactContact);
+    }
 }
