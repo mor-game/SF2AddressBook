@@ -34,7 +34,7 @@ class SocieteController extends Controller
             
             $this->get("session")->getFlashBag()->add("success", "La société a bien été publiée");
             
-            return $this->redirect($this->generateUrl("next_jobs_societe_lister"));
+            return $this->redirect($this->generateUrl("carnet_addressBook_societe_lister"));
             
         }
         
