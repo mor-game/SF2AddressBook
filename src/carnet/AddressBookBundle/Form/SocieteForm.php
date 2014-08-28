@@ -13,6 +13,7 @@ class SocieteForm extends AbstractType {
                 ->add("adresse")
                 ->add("ville")
                 ->add("cp")
+                ->add("societe_id_societe")
                 ->add("save", "submit");
     }
     
