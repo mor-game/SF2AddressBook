@@ -1,7 +1,21 @@
-{% extends "::base.html.twig" %}
+{% extends "carnetAddressBookBundle::base.html.twig" %}
 
-{% block title %}carnetAddressBookBundle:Societe:ajouter{% endblock %}
+{% block title %}Carnet d'adresse - ajouter une société{% endblock %}
 
-{% block body %}
-<h1>Welcome to the Societe:ajouter page</h1>
+{% block contenu %}
+    <h1>Ajouter une société</h1>
+    {{form(form)}}
+    {#{{form_start(form, {'attr':{'class':'form-horizontal', 'role':'form', 'novalidate':''} })}}
+    
+    {{bootstrap.formGroup(form.nom, 'Nom')}}
+    {{bootstrap.formGroup(form.adresse, 'Adresse')}}
+    {{bootstrap.formGroup(form.ville, 'Ville')}}
+    {{bootstrap.formGroup(form.cp, 'cp')}}
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            {{form_widget(form.save, {'attr':{'class':'btn btn-primary'} }) }}
+        </div>
+    </div>
+    {{form_end(form)}}#}
 {% endblock %}
