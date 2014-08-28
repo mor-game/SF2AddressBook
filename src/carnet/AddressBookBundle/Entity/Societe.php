@@ -49,15 +49,9 @@ class Societe
      */
     private $cp;
     
-    function __construct($idSociete, $nom, $adresse, $ville, $cp) {
-        $this->idSociete = $idSociete;
-        $this->nom = $nom;
-        $this->adresse = $adresse;
-        $this->ville = $ville;
-        $this->cp = $cp;
-    }
+   
 
-    
+        
     public function getIdSociete() {
         return $this->idSociete;
     }
