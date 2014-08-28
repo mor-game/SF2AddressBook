@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="carnet\AddressBookBundle\Entity\Contact" table="contact">
+    <indexes>
+      <index name="fk_contact_societe1_idx" columns="societe_id_societe"/>
+    </indexes>
+    <id name="idContact" type="integer" column="id_contact">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="prenom" type="string" column="prenom" length="80" nullable="false"/>
+    <field name="nom" type="string" column="nom" length="80" nullable="false"/>
+    <field name="email" type="string" column="email" length="250" nullable="true"/>
+    <field name="tel" type="string" column="tel" length="15" nullable="false"/>
+    <field name="adresse" type="text" column="adresse" nullable="true"/>
+    <field name="cp" type="string" column="cp" length="5" nullable="true"/>
+    <field name="ville" type="string" column="ville" length="80" nullable="true"/>
+    <many-to-one field="societeSociete" target-entity="Societe">
+      <join-columns>
+        <join-column name="societe_id_societe" referenced-column-name="id_societe"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-many field="groupeGroupe" target-entity="Groupe" inversed-by="contactContact">
+      <join-table name="contact_has_groupe">
+        <join-columns>
+          <join-column name="contact_id_contact" referenced-column-name="id_contact"/>
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="groupe_id_groupe" referenced-column-name="id_groupe"/>
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+  </entity>
+</doctrine-mapping>
