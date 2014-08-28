@@ -41,7 +41,7 @@ class ContactController extends Controller {
         }
 
         return $this->render('carnetAddressBookBundle:Contact:ajouter.html.twig', array(
-                    "form" => createView()
+                    "form" =>$form->createView()
         ));
     }
 
