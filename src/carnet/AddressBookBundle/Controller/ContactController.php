@@ -35,7 +35,7 @@ class ContactController extends Controller {
             $em->persist($contact);
             $em->flush();
 
-            $this->get("session")->getFlashBag()->add("success", "L'annonce a bien été publiée");
+            $this->get("session")->getFlashBag()->add("success", "Contact enregistré");
 
             return $this->redirect($this->generateUrl("carnet_addressBook_contact_lister"));
         }
