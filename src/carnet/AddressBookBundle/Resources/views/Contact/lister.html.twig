@@ -3,5 +3,29 @@
 
 
 {% block contenu %}
-<h1>Welcome to the Contact:lister page</h1>
+<h1>Liste des contacts</h1>
+
+
+    {% for contact in listeContacts %}
+
+        <div class="prenom">
+
+            <h2>
+                <a href="{{path('carnet_addressBook_contact_lister', {'nom':contact.nom, 'prenom':contact.prenom})}}">
+                    {{contact.nom}}
+                    {{contact.prenom}}
+                </a>
+            </h2>
+
+            <div class="telephone">
+                <p>
+                    {{contact.tel}}
+                    
+                </p>              
+            </div>
+
+
+    {% endfor %}  
+
+
 {% endblock %}
