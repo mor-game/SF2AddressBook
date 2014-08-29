@@ -1,12 +1,29 @@
 {% extends "carnetAddressBookBundle::base.html.twig" %}
-{#{% import "carnetAddressBookBundle::bootstrap.html.twig" as bootstrap%}#}
+{% import "carnetAddressBookBundle::bootstrap.html.twig" as bootstrap%}
 
 {% block title %}Carnet d'adresse - ajouter une société{% endblock %}
 
+{#{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+
+    <style>
+        .help-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+    </style>
+
+  
+{% endblock %}#}
+
 {% block contenu %}
     <h1>Ajouter une société</h1>
-    {{form(form)}}
-    {#{{form_start(form, {'attr':{'class':'form-horizontal', 'role':'form', 'novalidate':''} })}}
+    
+    {#{{form(form)}}#}
+    
+    {{form_start(form, {'attr':{'class':'form-horizontal', 'role':'form', 'novalidate':''} })}}
     
     {{bootstrap.formGroup(form.nom, 'Nom')}}
     {{bootstrap.formGroup(form.adresse, 'Adresse')}}
@@ -18,5 +35,7 @@
             {{form_widget(form.save, {'attr':{'class':'btn btn-primary'} }) }}
         </div>
     </div>
-    {{form_end(form)}}#}
+        
+    {{form_end(form)}}
+    
 {% endblock %}
