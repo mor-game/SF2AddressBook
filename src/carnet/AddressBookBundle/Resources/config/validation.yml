@@ -1,0 +1,63 @@
+carnet\AddressBookBundle\Entity\Contact:
+    properties:
+        nom:
+            - NotBlank:
+                message: "Le nom est obligatoire"
+            - Length:
+                max: 80
+                maxMessage: "Le nom ne doit pas dépasser 80 caractères"
+        prenom:
+            - NotBlank:
+                message: "Le prénom est obligatoire"
+            - Length:
+                max: 80
+                maxMessage: "Le prénom ne doit pas dépasser 80 caractères"
+        email:
+            - NotBlank:
+                message: "L'email est obligatoire"
+            - Length:
+                max: 250
+                maxMessage: "L'email ne doit pas dépasser 250 caractères"
+        tel:
+            - NotBlank:
+                message: "Le numéro de téléphone est obligatoire"
+            - Length:
+                max: 15
+                maxMessage: "Le numéro de téléphone ne doit pas dépasser 80 caractères"
+                
+carnet\AddressBookBundle\Entity\Societe:
+    properties:
+        nom:
+            - NotBlank:
+                message: "Le nom de la société est obligatoire"
+            - Length:
+                max: 80
+                maxMessage: "Le nom de la société ne doit pas dépasser 80 caractères"
+        adresse:
+            - NotBlank:
+                message: "L'adresse est obligatoire"
+        ville:
+            - NotBlank:
+                message: "Le nom de la ville est obligatoire"
+            - Length:
+                max: 80
+                maxMessage: "Le nom de la ville ne doit pas dépasser 250 caractères"
+        cp:
+            - NotBlank:
+                message: "Le code postal est obligatoire"
+            - Length:
+                max: 5
+                maxMessage: "Le code postal doit comporter 5 caractères"
+                
+Next\JobsBundle\Entity\Categorie:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: nom
+            message: "Cette catégorie existe déjà"
+    properties:
+        nom:
+            - NotBlank:
+                message:
+            - Length:
+                max: 40
+                maxMessage: "Le Nom ne doit pas dépasser 40 caractères"
