@@ -9,17 +9,44 @@
         <div class="description">
             <p>
                 {{groupe.description}}
+            </p>
                 
             <h1>Contacts associés au groupe : {{groupe.nom}}</h1>
                 
-                {% for contact in groupe.contacts%}
+                {#{% for contact in groupe.contacts%}
                 <p>
                     <h4>{{contact.nom}} {{contact.prenom}}</h4>
                    
                 </p>
                 <br/>
-                {% endfor %}
-            </p>
+                {% endfor %}#}
+                
+                <div class="panel-group" id="accordion">
+                {% for contact in groupe.contacts%}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{contact.idContact}}">
+                                <span class="glyphicon glyphicon-plus"></span> {{contact.nom}} {{contact.prenom}}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse{{contact.idContact}}" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {{contact.tel}}<br/>
+                            {{contact.email}}<br/>
+                            {{contact.adresse}}<br/>
+                            {{contact.cp}}<br/>
+                            {{contact.ville}}
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            
+            {% endfor %}
+            </div><!-- fin div accordion-->
+
         </div>       
 </div><!-- fin div class annonce-->
         

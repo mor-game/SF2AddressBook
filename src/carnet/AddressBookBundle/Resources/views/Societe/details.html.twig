@@ -14,13 +14,13 @@
 
             <h1>Contacts associés à la société : {{societe.nom}}</h1>
                 
-                {% for contact in societe.contacts%}
+{#                {% for contact in societe.contacts%}
                 <p>
                     <h4>{{contact.nom}} {{contact.prenom}}</h4>
                    
                 </p>
                 <br/>
-                {% endfor %}
+                {% endfor %}#}
 
 
             <div class="panel-group" id="accordion">
@@ -28,12 +28,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{contact.idContact}}">
                                 <span class="glyphicon glyphicon-plus"></span> {{contact.nom}} {{contact.prenom}}
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse">
+                    <div id="collapse{{contact.idContact}}" class="panel-collapse collapse">
                         <div class="panel-body">
                             {{contact.tel}}<br/>
                             {{contact.email}}<br/>
