@@ -49,6 +49,13 @@ class Societe
      */
     private $cp;
     
+    /**
+     *
+     * @var Collection 
+     * @ORM\OneToMany(targetEntity="Contact", mappedBy="societe")
+     */
+    private $contacts;
+    
 
 
     /**
@@ -158,4 +165,44 @@ class Societe
         
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add contacts
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contacts
+     * @return Societe
+     */
+    public function addContact(\carnet\AddressBookBundle\Entity\Contact $contacts)
+    {
+        $this->contacts[] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Remove contacts
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contacts
+     */
+    public function removeContact(\carnet\AddressBookBundle\Entity\Contact $contacts)
+    {
+        $this->contacts->removeElement($contacts);
+    }
+
+    /**
+     * Get contacts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
 }

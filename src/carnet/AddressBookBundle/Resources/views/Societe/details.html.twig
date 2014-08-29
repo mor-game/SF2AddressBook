@@ -11,6 +11,16 @@
                 {{societe.adresse}}, 
                 {{societe.ville}}, 
                 {{societe.cp}}
+                
+            <h1>Contacts associés à la société : {{societe.nom}}</h1>
+                
+                {% for contact in societe.contacts%}
+                <p>
+                    <h4>{{contact.nom}}</h4>
+                    {{contact.prenom}}
+                </p>
+                <br/>
+                {% endfor %}
             </p>
         </div>       
 </div><!-- fin div class annonce-->

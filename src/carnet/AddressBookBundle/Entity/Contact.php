@@ -75,7 +75,7 @@ class Contact{
     /**
      * @var Societe
      * 
-     * @ORM\ManyToOne(targetEntity="Societe")
+     * @ORM\ManyToOne(targetEntity="Societe", inversedBy="contacts")
      * @ORM\JoinColumn(name="societe_id_societe", referencedColumnName="id_societe")
      */
     private $societe;
