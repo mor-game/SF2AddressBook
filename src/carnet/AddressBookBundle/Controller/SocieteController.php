@@ -18,7 +18,13 @@ class SocieteController extends Controller
         return $this->render('carnetAddressBookBundle:Societe:lister.html.twig', array(
                 "listeSocietes" => $listeSocietes
             ));    }
-            
+    
+    public function detailsAction(\carnet\AddressBookBundle\Entity\Societe $societe)
+    {
+        
+        return $this->render('carnetAddressBookBundle:Societe:details.html.twig', array(
+                "societe" => $societe
+            ));    }       
             
 
     public function ajouterAction(Request $request){

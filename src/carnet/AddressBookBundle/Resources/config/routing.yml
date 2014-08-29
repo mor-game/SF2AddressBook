@@ -9,6 +9,12 @@ carnet_addressBook_contact_ajouter:
 carnet_addressBook_societe_lister:
     path:     /societe/lister
     defaults: { _controller: carnetAddressBookBundle:Societe:lister }
+    
+carnet_addressBook_societe_details:
+    path:     /societe/{id}
+    defaults: { _controller: carnetAddressBookBundle:Societe:details }
+    requirements:
+        id: "[1-9][0-9]*"
 
 carnet_addressBook_societe_ajouter:
     path:     /societe/ajouter

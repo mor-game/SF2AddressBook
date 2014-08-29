@@ -5,12 +5,15 @@
 {% block contenu %}
 <h1>Mes sociétés</h1>
 <ul class="btn-group btn-group-vertical">
-        {%for societe in listeSocietes%}
            
-                <a href="{{path('carnet_addressBook_societe_details', {'id':societe.idSociete|lower})}}">
-                    <li class="btn btn-default">{{societe.nom}}</li>
-                </a>
+    <a href="#">
+         <li class="btn btn-default">{{societe.adresse}}</li>
+         <br>
+         <li class="btn btn-default">{{societe.ville}}</li>
+         <br>
+         <li class="btn btn-default">{{societe.cp}}</li>
+         <br>
+    </a>
             
-        {% endfor %}
     </ul>
 {% endblock %}
