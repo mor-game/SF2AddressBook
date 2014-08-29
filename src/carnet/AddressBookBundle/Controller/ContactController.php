@@ -18,6 +18,13 @@ class ContactController extends Controller {
                     "listeContacts" => $listeContacts
         ));
     }
+    
+    public function detailsAction(\carnet\AddressBookBundle\Entity\Contact $contact)
+    {
+        
+        return $this->render('carnetAddressBookBundle:Contact:details.html.twig', array(
+                'contact' => $contact
+            ));    }
 
     public function ajouterAction(Request $request) {
 

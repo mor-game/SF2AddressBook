@@ -7,10 +7,10 @@
 <ul class="btn-group btn-group-vertical">
         {%for societe in listeSocietes%}
            
-                <a href="{{path('carnet_addressBook_societe_lister', {'societe':societe.nom|lower})}}">
+                <a href="{{path('carnet_addressBook_societe_details', {'id':societe.idSociete})}}">
                     <li class="btn btn-default">{{societe.nom}}</li>
                 </a>
             
         {% endfor %}
-    </ul>
+</ul>
 {% endblock %}

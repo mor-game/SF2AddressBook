@@ -1,0 +1,20 @@
+{% extends "carnetAddressBookBundle::base.html.twig" %}
+
+{% block title %}{{societe.nom}}{% endblock %}
+
+{% block contenu %}
+<h1>{{societe.nom}}</h1>
+
+<div class="annonce">
+        <div class="description">
+            <p>
+                {{societe.adresse}}
+                <br/>
+                {{societe.ville}}
+                <br/>
+                {{societe.cp}}
+            </p>
+        </div>       
+</div><!-- fin div class annonce-->
+        
+{% endblock %}

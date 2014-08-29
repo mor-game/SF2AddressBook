@@ -92,9 +92,7 @@ class Contact{
      */
     private $groupes;
 
-   
-
-
+    
     /**
      * Get idContact
      *
