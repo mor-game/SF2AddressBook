@@ -7,7 +7,7 @@
 
 {% for groupe in listeGroupes %}
     <ul class="list-group">
-    <a href="#">
+    <a href="{{path('carnet_addressBook_groupe_details', {'id': groupe.idGroupe|lower})}}">
         <li class="list-group-item">{{groupe.nom}}</li>
     </a>
     </ul>

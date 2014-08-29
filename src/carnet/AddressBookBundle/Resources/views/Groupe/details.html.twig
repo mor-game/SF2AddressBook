@@ -1,20 +1,18 @@
 {% extends "carnetAddressBookBundle::base.html.twig" %}
 
-{% block title %}{{societe.nom}}{% endblock %}
+{% block title %}{{groupe.nom}}{% endblock %}
 
 {% block contenu %}
-<h1>{{societe.nom}}</h1>
+<h1>{{groupe.nom}}</h1>
 
 <div class="annonce">
         <div class="description">
             <p>
-                {{societe.adresse}}, 
-                {{societe.ville}}, 
-                {{societe.cp}}
+                {{groupe.description}}
                 
-            <h1>Contacts associés à la société : {{societe.nom}}</h1>
+            <h1>Contacts associés au groupe : {{groupe.nom}}</h1>
                 
-                {% for contact in societe.contacts%}
+                {% for contact in groupe.contacts%}
                 <p>
                     <h4>{{contact.nom}} {{contact.prenom}}</h4>
                    

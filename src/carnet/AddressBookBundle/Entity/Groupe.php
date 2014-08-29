@@ -34,6 +34,14 @@ class Groupe
      * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
+    
+  /**
+   *
+   * @var Collection
+   * 
+   * @ORM\ManyToMany(targetEntity="Contact", mappedBy="groupes")
+   */
+    private $contacts;
 
 
     /**
@@ -96,4 +104,44 @@ class Groupe
         return $this->nom;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->contacts = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add contacts
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contacts
+     * @return Groupe
+     */
+    public function addContact(\carnet\AddressBookBundle\Entity\Contact $contacts)
+    {
+        $this->contacts[] = $contacts;
+
+        return $this;
+    }
+
+    /**
+     * Remove contacts
+     *
+     * @param \carnet\AddressBookBundle\Entity\Contact $contacts
+     */
+    public function removeContact(\carnet\AddressBookBundle\Entity\Contact $contacts)
+    {
+        $this->contacts->removeElement($contacts);
+    }
+
+    /**
+     * Get contacts
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContacts()
+    {
+        return $this->contacts;
+    }
 }

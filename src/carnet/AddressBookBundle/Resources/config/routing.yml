@@ -23,6 +23,12 @@ carnet_addressBook_societe_ajouter:
 carnet_addressBook_groupe_lister:
     path:     /groupe/lister
     defaults: { _controller: carnetAddressBookBundle:Groupe:lister }
+    
+carnet_addressBook_groupe_details:
+    path:     /groupe/{id}
+    defaults: { _controller: carnetAddressBookBundle:Groupe:details }
+    requirements:
+        id: "[1-9][0-9]*"
 
 carnet_addressBook_groupe_ajouter:
     path:     /groupe/ajouter
