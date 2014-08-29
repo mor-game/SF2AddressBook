@@ -298,5 +298,6 @@ class Contact {
     public function getGroupeGroupe() {
         return $this->groupeGroupe;
     }
+    
 
 }
