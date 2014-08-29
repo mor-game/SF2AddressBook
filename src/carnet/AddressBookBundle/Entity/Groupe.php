@@ -35,75 +35,65 @@ class Groupe
      */
     private $description;
 
+
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * Get idGroupe
      *
-     * @ORM\ManyToMany(targetEntity="Contact", mappedBy="groupeGroupe")
+     * @return integer 
      */
-    private $contactContact;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getIdGroupe()
     {
-        $this->contactContact = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    public function getIdGroupe() {
         return $this->idGroupe;
     }
 
-    public function getNom() {
-        return $this->nom;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function getContactContact() {
-        return $this->contactContact;
-    }
-
-    public function setIdGroupe($idGroupe) {
-        $this->idGroupe = $idGroupe;
-    }
-
-    public function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    public function setDescription($description) {
-        $this->description = $description;
-    }
-
-    public function setContactContact(\Doctrine\Common\Collections\Collection $contactContact) {
-        $this->contactContact = $contactContact;
-    }
-
-
-
     /**
-     * Add contactContact
+     * Set nom
      *
-     * @param \carnet\AddressBookBundle\Entity\Contact $contactContact
+     * @param string $nom
      * @return Groupe
      */
-    public function addContactContact(\carnet\AddressBookBundle\Entity\Contact $contactContact)
+    public function setNom($nom)
     {
-        $this->contactContact[] = $contactContact;
+        $this->nom = $nom;
 
         return $this;
     }
 
     /**
-     * Remove contactContact
+     * Get nom
      *
-     * @param \carnet\AddressBookBundle\Entity\Contact $contactContact
+     * @return string 
      */
-    public function removeContactContact(\carnet\AddressBookBundle\Entity\Contact $contactContact)
+    public function getNom()
     {
-        $this->contactContact->removeElement($contactContact);
+        return $this->nom;
     }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Groupe
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
+    public function __toString() {
+        return $this->nom;
+    }
+
 }

@@ -49,48 +49,113 @@ class Societe
      */
     private $cp;
     
-   
 
-        
-    public function getIdSociete() {
+
+    /**
+     * Get idSociete
+     *
+     * @return integer 
+     */
+    public function getIdSociete()
+    {
         return $this->idSociete;
     }
 
-    public function getNom() {
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     * @return Societe
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string 
+     */
+    public function getNom()
+    {
         return $this->nom;
     }
 
-    public function getAdresse() {
+    /**
+     * Set adresse
+     *
+     * @param string $adresse
+     * @return Societe
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse
+     *
+     * @return string 
+     */
+    public function getAdresse()
+    {
         return $this->adresse;
     }
 
-    public function getVille() {
+    /**
+     * Set ville
+     *
+     * @param string $ville
+     * @return Societe
+     */
+    public function setVille($ville)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville
+     *
+     * @return string 
+     */
+    public function getVille()
+    {
         return $this->ville;
     }
 
-    public function getCp() {
+    /**
+     * Set cp
+     *
+     * @param string $cp
+     * @return Societe
+     */
+    public function setCp($cp)
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    /**
+     * Get cp
+     *
+     * @return string 
+     */
+    public function getCp()
+    {
         return $this->cp;
     }
-
-    public function setIdSociete($idSociete) {
-        $this->idSociete = $idSociete;
+    
+    public function __toString() {
+        return $this->nom;
+        
     }
-
-    public function setNom($nom) {
-        $this->nom = $nom;
-    }
-
-    public function setAdresse($adresse) {
-        $this->adresse = $adresse;
-    }
-
-    public function setVille($ville) {
-        $this->ville = $ville;
-    }
-
-    public function setCp($cp) {
-        $this->cp = $cp;
-    }
-
 
 }

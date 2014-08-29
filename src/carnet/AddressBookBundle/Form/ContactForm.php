@@ -13,6 +13,8 @@ class ContactForm extends \Symfony\Component\Form\AbstractType{
                 ->add("adresse")
                 ->add("cp")
                 ->add("ville")
+                ->add("societe")
+                ->add("groupes")
                 ->add("save", "submit");
                 
     }

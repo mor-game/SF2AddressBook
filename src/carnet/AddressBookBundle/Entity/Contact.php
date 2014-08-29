@@ -2,14 +2,17 @@
 
 namespace carnet\AddressBookBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\Collection as Collection2;
 
 /**
  * Contact
- * ORM\Table(name="contact")
+ * @ORM\Table(name="contact")
  * @ORM\Entity
  */
-class Contact {
+class Contact{
 
     /**
      * @var integer
@@ -23,7 +26,7 @@ class Contact {
     /**
      * @var string
      * 
-     * @ORM\Column(name="preno;", type="string", nullable=false)
+     * @ORM\Column(name="prenom", type="string", nullable=false)
      */
     private $prenom;
 
@@ -44,14 +47,14 @@ class Contact {
     /**
      * @var string
      * 
-     * @ORM\Column(name="email", type="string", nullable=false)
+     * @ORM\Column(name="tel", type="string", nullable=false)
      */
     private $tel;
 
     /**
      * @var string
      * 
-     * @ORM\Column(name="adresse", type="string", nullable=false)
+     * @ORM\Column(name="adresse", type="text", nullable=false)
      */
     private $adresse;
 
@@ -70,32 +73,35 @@ class Contact {
     private $ville;
 
     /**
-     * @var \carnet\AddressBookBundle\Entity\Societe
+     * @var Societe
      * 
-     * @ORM\ManyToMany(targetEntity="Societe", mappedBy="idSociete")
+     * @ORM\ManyToOne(targetEntity="Societe")
+     * @ORM\JoinColumn(name="societe_id_societe", referencedColumnName="id_societe")
      */
-    private $societeSociete;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     * 
-     * @ORM\ManyToMany(targetEntity="Groupe", mappedBy="contactContact")
-     */
-    private $groupeGroupe;
-
-    /**
-     * Constructor
-     */
-    public function __construct() {
-        $this->groupeGroupe = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $societe;
     
+    /**
+     *
+     * @var Collection
+     * 
+     * @ORM\ManyToMany(targetEntity="Groupe")
+     * @ORM\JoinTable(name="contact_has_groupe",
+     *      joinColumns={@ORM\JoinColumn(name="contact_id_contact", referencedColumnName="id_contact")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="groupe_id_groupe", referencedColumnName="id_groupe")}
+     *      )
+     */
+    private $groupes;
+
+   
+
+
     /**
      * Get idContact
      *
      * @return integer 
      */
-    public function getIdContact() {
+    public function getIdContact()
+    {
         return $this->idContact;
     }
 
@@ -105,7 +111,8 @@ class Contact {
      * @param string $prenom
      * @return Contact
      */
-    public function setPrenom($prenom) {
+    public function setPrenom($prenom)
+    {
         $this->prenom = $prenom;
 
         return $this;
@@ -116,7 +123,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getPrenom() {
+    public function getPrenom()
+    {
         return $this->prenom;
     }
 
@@ -126,7 +134,8 @@ class Contact {
      * @param string $nom
      * @return Contact
      */
-    public function setNom($nom) {
+    public function setNom($nom)
+    {
         $this->nom = $nom;
 
         return $this;
@@ -137,7 +146,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getNom() {
+    public function getNom()
+    {
         return $this->nom;
     }
 
@@ -147,7 +157,8 @@ class Contact {
      * @param string $email
      * @return Contact
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
 
         return $this;
@@ -158,7 +169,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
@@ -168,7 +180,8 @@ class Contact {
      * @param string $tel
      * @return Contact
      */
-    public function setTel($tel) {
+    public function setTel($tel)
+    {
         $this->tel = $tel;
 
         return $this;
@@ -179,7 +192,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getTel() {
+    public function getTel()
+    {
         return $this->tel;
     }
 
@@ -189,7 +203,8 @@ class Contact {
      * @param string $adresse
      * @return Contact
      */
-    public function setAdresse($adresse) {
+    public function setAdresse($adresse)
+    {
         $this->adresse = $adresse;
 
         return $this;
@@ -200,7 +215,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getAdresse() {
+    public function getAdresse()
+    {
         return $this->adresse;
     }
 
@@ -210,7 +226,8 @@ class Contact {
      * @param string $cp
      * @return Contact
      */
-    public function setCp($cp) {
+    public function setCp($cp)
+    {
         $this->cp = $cp;
 
         return $this;
@@ -221,7 +238,8 @@ class Contact {
      *
      * @return string 
      */
-    public function getCp() {
+    public function getCp()
+    {
         return $this->cp;
     }
 
@@ -231,7 +249,8 @@ class Contact {
      * @param string $ville
      * @return Contact
      */
-    public function setVille($ville) {
+    public function setVille($ville)
+    {
         $this->ville = $ville;
 
         return $this;
@@ -242,62 +261,71 @@ class Contact {
      *
      * @return string 
      */
-    public function getVille() {
+    public function getVille()
+    {
         return $this->ville;
     }
 
-   
-
     /**
-     * Set societeSociete
+     * Set societe
      *
-     * @param \carnet\AddressBookBundle\Entity\Societe $societeSociete
+     * @param \carnet\AddressBookBundle\Entity\Societe $societe
      * @return Contact
      */
-    public function setSocieteSociete(\carnet\AddressBookBundle\Entity\Societe $societeSociete = null) {
-        $this->societeSociete = $societeSociete;
+    public function setSociete(\carnet\AddressBookBundle\Entity\Societe $societe = null)
+    {
+        $this->societe = $societe;
 
         return $this;
     }
 
     /**
-     * Get societeSociete
+     * Get societe
      *
      * @return \carnet\AddressBookBundle\Entity\Societe 
      */
-    public function getSocieteSociete() {
-        return $this->societeSociete;
+    public function getSociete()
+    {
+        return $this->societe;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->groupes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Add groupeGroupe
+     * Add groupes
      *
-     * @param \carnet\AddressBookBundle\Entity\Groupe $groupeGroupe
+     * @param \carnet\AddressBookBundle\Entity\Groupe $groupes
      * @return Contact
      */
-    public function addGroupeGroupe(\carnet\AddressBookBundle\Entity\Groupe $groupeGroupe) {
-        $this->groupeGroupe[] = $groupeGroupe;
+    public function addGroupe(\carnet\AddressBookBundle\Entity\Groupe $groupes)
+    {
+        $this->groupes[] = $groupes;
 
         return $this;
     }
 
     /**
-     * Remove groupeGroupe
+     * Remove groupes
      *
-     * @param \carnet\AddressBookBundle\Entity\Groupe $groupeGroupe
+     * @param \carnet\AddressBookBundle\Entity\Groupe $groupes
      */
-    public function removeGroupeGroupe(\carnet\AddressBookBundle\Entity\Groupe $groupeGroupe) {
-        $this->groupeGroupe->removeElement($groupeGroupe);
+    public function removeGroupe(\carnet\AddressBookBundle\Entity\Groupe $groupes)
+    {
+        $this->groupes->removeElement($groupes);
     }
 
     /**
-     * Get groupeGroupe
+     * Get groupes
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGroupeGroupe() {
-        return $this->groupeGroupe;
+    public function getGroupes()
+    {
+        return $this->groupes;
     }
-    
-
 }
