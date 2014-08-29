@@ -23,9 +23,9 @@ class SocieteController extends Controller
     {
         
         return $this->render('carnetAddressBookBundle:Societe:details.html.twig', array(
-                'societe' => $societe
-            ));    }
-            
+                "societe" => $societe
+            ));    }       
+
             
 
     public function ajouterAction(Request $request){
