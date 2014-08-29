@@ -16,8 +16,7 @@
                 
                 {% for contact in societe.contacts%}
                 <p>
-                    <h4>{{contact.nom}}</h4>
-                    {{contact.prenom}}
+                    <h4>{{contact.nom}} {{contact.prenom}}</h4>
                 </p>
                 <br/>
                 {% endfor %}
