@@ -3,25 +3,54 @@
 {% block title %}{{societe.nom}}{% endblock %}
 
 {% block contenu %}
-<h1>{{societe.nom}}</h1>
+    <h1>{{societe.nom}}</h1>
 
-<div class="annonce">
+    <div class="annonce">
         <div class="description">
             <p>
                 {{societe.adresse}}, 
                 {{societe.ville}}, 
                 {{societe.cp}}
-                
-            <h1>Contacts associés à la société : {{societe.nom}}</h1>
-                
-                {% for contact in societe.contacts%}
-                <p>
-                    <h4>{{contact.nom}} {{contact.prenom}}</h4>
-                </p>
-                <br/>
-                {% endfor %}
             </p>
-        </div>       
-</div><!-- fin div class annonce-->
-        
-{% endblock %}
+            <h1>Contacts associés à la société : {{societe.nom}}</h1>
+
+            
+                {#<p>
+                <h4>{{contact.nom}}, {{contact.prenom}}</h4>
+                {{contact.tel}}<br/>
+                {{contact.email}}
+                </p>
+                <br/>#}
+            {#{% endfor %}#}
+            
+
+            <div class="panel-group" id="accordion">
+                {% for contact in societe.contacts%}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <span class="glyphicon glyphicon-plus"></span> {{contact.nom}} {{contact.prenom}}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            {{contact.tel}}<br/>
+                            {{contact.email}}<br/>
+                            {{contact.adresse}}<br/>
+                            {{contact.cp}}<br/>
+                            {{contact.ville}}
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            
+            {% endfor %}
+            </div><!-- fin div accordion-->
+
+
+        </div><!-- fin div class annonce-->
+
+    {% endblock %}
