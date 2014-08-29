@@ -3,6 +3,21 @@
 
 {% block title %}Carnet d'adresse{% endblock %}
 
+{% block stylesheets %}
+
+    <link rel="stylesheet" href="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/carnetaddressbook/js/select2-3.5.1/select2-bootstrap.css')}}">
+
+    <style>
+        .help-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+    </style>
+
+  
+{% endblock %}
+
 {% block contenu %}
 <h2>Ajouter un groupe:</h2>
 
